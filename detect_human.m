@@ -3,13 +3,10 @@ test_dir = 'INRIAPerson/Test/pos/';
 xml_filename = 'humanDetector.xml';
 output_dir = 'detection_output/';
 
-mkdir(out_dir)
+mkdir(output_dir)
 
 detector = vision.CascadeObjectDetector('humanDetector.xml');
-img = imread(test_file);
-detector.MergeThreshold
-bbox = step(detector, img);
-detectedImg = insertObjectAnnotation(img, 'rectangle', bbox, 'human');
-figure; imshow(detectedImg);
 
-write_detection_result(test_dir, detector, output_dir, 'human')
+show_detection_results(test_file, detector)
+
+write_detection_results(test_dir, detector, output_dir, 'human')
